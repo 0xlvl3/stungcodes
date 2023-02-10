@@ -90,6 +90,7 @@
     min-height: $logo-height;
     h1 {
       display: table-cell;
+	  font-size: 2rem;
       vertical-align: middle;
     }
   }
@@ -101,11 +102,14 @@
       li {
         display: none;
         border-right: 0;
+		font-size: 1rem;
+		padding-top: 3.5rem;
+		padding-left: 1rem;
       }
       li.icon {
         position: absolute;
-        top: 77px;
-        right: 1rem;
+        top: 70px;
+		right: .5rem;
         display: inline-block;
       }
     }
@@ -116,7 +120,7 @@
     }
     li:not(:first-child) {
       padding-top: 1rem;
-      padding-left: $logo-width + 20px;
+      padding-left: 20px;
       font-size: 1rem;
     }
   }

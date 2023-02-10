@@ -1,6 +1,6 @@
 baseURL = ""
 languageCode = "en-us"
-title = "StungCodes.com"
+title = "Stung Codes"
 theme = "cactus"
 
 
@@ -8,7 +8,7 @@ theme = "cactus"
 	colortheme = "dark"
 	description = "Self-taught developer with a passion for all things tech, I have honed my skills in Cybersecurity, Cloud Architecture, and Backend Development. This portfolio serves as a platform to showcase my work and share my knowledge with others. My blog posts offer an insightful look into my areas of expertise, and I welcome feedback and suggestions to continually improve my understanding. If you come across any inaccuracies in my writing, please don't hesitate to reach out to me through the contact links provided."
 	mainSection = "posts"
-	mainSectionTitle = "Blog"
+	mainSectionTitle = "Posts"
 	showAllPostsOnHomePage = true
 	rss = true
 
@@ -20,19 +20,24 @@ theme = "cactus"
 	weight = 1
 
 [[menu.main]]
-	name = "Blog"
-	url = '/blog'
+	name = "Post List"
+	url = '/posts/'
 	weight = 2
 
 [[menu.main]]
-	name = "Tags"
-	url = '/tags'
-	weight = 3
+	name = "Post Categories"
+	url = '/categories/'
+	weight = 3 
 
 [[menu.main]]
 	name = "Portfolio"
-	url = '/portfolio'
-	weight = 4
+	url = '/portfolio/'
+	weight = 4 
+
+[[menu.main]]
+	name = "Tags"
+	url = '/tags/'
+	weight = 5
 
 # social.
 

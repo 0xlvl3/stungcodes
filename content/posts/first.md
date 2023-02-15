@@ -56,3 +56,68 @@ Open up your .zshrc with `vim .zshrc`
 >export EDITOR=vim
 >export VISUAL=vim
 >```
+
+
+>```
+># Basic auto/tab complete.
+>autoload -U compinit
+>zstyle ':completion:*' menu select
+>zmodload zsh/complist
+>compinit
+>_comp_options+=(globdots) # (globdots) will include hidden files.
+>
+># Make directory and change into it.
+>md () {
+>   mkdir "$1"
+>   cd "$1"
+>}
+>
+># Enable vi mode and set key timeout to 1 second.
+>bindkey -v
+>export KEYTIMEOUT=1
+>
+># Use vim keys in tab complete menu.
+>bindkey -M menuselect 'h' vi-backward-char
+>bindkey -M menuselect 'j' vi-down-line-or-history
+>bindkey -M menuselect 'k' vi-up-line-or-history
+>bindkey -M menuselect 'l' vi-forward-char
+>
+># Use vi-style delete key.
+>bindkey -v '^?' backward-delete-char
+>
+># Vi code from:
+># https://www.youtube.com/watch?v=eLEo4OQ-cuQ
+># https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
+>
+># Change cursor shape for different vi modes.
+>function zle-keymap-select {
+>  if [[ $1 = 'block' ]] || [[ ${KEYMAP} == vicmd ]]; then
+>     echo -ne '\e[1 q' # block shape cursor for command mode
+>  else
+>     echo -ne '\e[5 q' # beam shape cursor for insert mode
+>  fi
+>}
+>zle -N zle-keymap-select
+>
+># Use beam shape cursor by default and after each command.
+>function zle-line-init {
+>  zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+ >  echo -ne "\e[5 q"
+>}
+>zle -N zle-line-init
+>echo -ne '\e[5 q' # beam shape cursor on startup.
+>preexec() { echo -ne '\e[5 q'; } # beam shape cursor after each command.
+>```
+
+We are going to install a plugin to our zsh, zsh autosuggestions is a helpful plugin and many use it. Run the command below and it will create a directory for our zsh plugin.
+>```
+>git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+>```
+
+Once we have ran that we can now source file within in our .zshrc 
+>```
+># Autosuggestion plugin.
+>source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+>```
+
+### Symlinking and How It Works

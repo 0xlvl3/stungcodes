@@ -32,7 +32,9 @@ I am on Ubuntu, so I will run the following command to install zsh. _For other i
 
 Once the install run `zsh` in your terminal
 
- > `zsh`
+ >```bash
+ > zsh
+ >```
 
 You should be greeted with the following screen, select the option below we are going to populate it ourselves. Once
 
@@ -43,7 +45,7 @@ Let's start to configure our first dotfile, our .zshrc.
 
 Open up your .zshrc with `vim .zshrc`
 
->```
+>```bash
 ># Enable colors.
 >autoload -U colors && colors
 >
@@ -58,7 +60,7 @@ Open up your .zshrc with `vim .zshrc`
 >```
 
 
->```
+>```bash
 ># Basic auto/tab complete.
 >autoload -U compinit
 >zstyle ':completion:*' menu select

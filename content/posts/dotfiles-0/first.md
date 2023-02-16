@@ -21,9 +21,6 @@ A dotfile is a configuration file that can customize various aspects of programs
 >```
 
 ![img1](/images/dotfiles-0/img1.jpg)
-
-insert img1
-
 <small>Example of list directory contents, with long list and don't ignore hidden files.</small>
 
 
@@ -35,8 +32,7 @@ This is the easy part creating the directory, this is where we will maintain all
 > mkdir .dotfiles
 > ```
 
-
-insert img2
+![img1](/images/dotfiles-0/img2.jpg)
 <small>Example of creating our .dotfiles and showing it in our home directory</small>
 
 Now we have our .dotfiles directory it's time to get some dotfiles.
@@ -110,12 +106,12 @@ Once the install has finished run `zsh` in your terminal
  > zsh
  > ```
 
-insert img3
+![img3](/images/dotfiles-0/img3.jpg)
 <small>You should come to this screen hit 0 and create your `.zshrc` we will be populating it.</small>
 
 You'll notice that your prompt has change to your machine name and should look like this `machine_name%` 
 
-insert img4
+![img4](/images/dotfiles-0/img4.jpg)
 <small>Example indicates that we are in zsh.</small>
 
 Now we are in zsh let's make zsh our default shell from bash with the following commands
@@ -154,7 +150,7 @@ Add these lines to your `.zshrc`.
 >RPROMPT='%F{yellow}%W %* %(?.√.%?)'
 >```
 
-insert img7 
+![img7](/images/dotfiles-0/img7.jpg)
 
 Our first line is an alias; you can think of aliases as a shorter version of lengthy commands. Some individuals source a second file to their shell config because their dotfiles include so many aliases. In another piece, I'll go into greater detail about them. By using `szsh` our `source .zshrc` alias will assist us in reloading our `.zshrc` configuration. We can source our changes more quickly as a result of this.
 
@@ -164,7 +160,7 @@ Our first line is an alias, aliases can be thought as an abbreviation of a longe
 
 The next line for your `Prompt Settings.` will effect your terminal prompt. There are many different customisations you can do to this. I left a link with the resource to get started, copying mine will give you a nice one I designed myself. ' [%~]%f %f' ' The '?' box here is apart of nerd fonts, if you installed your nerd fonts correctly you will see a arrow.
 
-insert img8
+![img8](/images/dotfiles-0/img8.jpg)
 <small>This is what your terminal should now look like.</small>
 
 
@@ -211,7 +207,11 @@ The first is to help with tab completion; as part of this, dotfiles will also be
 
 A directory will be created from the variable supplied to `md` with a filename, and it will then immediately change into that directory.
 
+![gif](/images/dotfiles-0/mdgif.gif)
+
 `Turn on vi mode`This isn't for everyone, but I'm a vim user, so I appreciate the utility of it in my terminal. I've left it here for you to decide. I've left the link where I got this from within the code if you'd like to understand it better.
+
+![gif](/images/dotfiles-0/vimodegif.gif)
 
 >```bash
 ># Basic auto/tab complete.
@@ -280,11 +280,15 @@ Once we have ran that we can now source file within in our .zshrc
 
 Now let's place our dotfiles in our `.dotfiles` directory!
 
+![img9](/images/dotfiles-0/img9.jpg)
+
 Once you've done that they are now located within your `.dotfiles`directory meaning they are no longer within the home directory. We need them within the home directory as it expects them to be there. We can achieve this easily through symlinking. 
 
 >```bash
 >ln -s ~/.dotfiles/.zshrc ~/.zshrc
 >ln -s ~/.dotfiles/.zsh ~/.zsh
 >```
+
+![img10](/images/dotfiles-0/img10.jpg)
 
 These will create a reference to our files or directories from one location to another without copying our files. A symlink is a pointer to the file or directory declared in the symlink. These symlinks allow us to have our files within multiple locations!

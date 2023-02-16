@@ -32,7 +32,7 @@ This is the easy part creating the directory, this is where we will maintain all
 > mkdir .dotfiles
 > ```
 
-![img1](/images/dotfiles-0/img2.jpg)
+![img2](/images/dotfiles-0/img2.jpg)
 <small>Example of creating our .dotfiles and showing it in our home directory</small>
 
 Now we have our .dotfiles directory it's time to get some dotfiles.
@@ -128,7 +128,15 @@ Now we are in zsh let's make zsh our default shell from bash with the following 
 > # If it returns a path to /zsh you've done it correctly
 > grep <user_name_here> | /etc/passwd 
 >```
-If it's returning the path let's restart our computer now and then proceed to configuring our `.zshrc`!
+Red: We check to see our current `$SHELL` default.
+
+Green: First we locate our zsh with which. Then we change the default shell with `chsh -s <shell_path_here>`
+
+Yellow: is a check to see if our change was effective.
+
+![img5](/images/dotfiles-0/img5.jpg)
+
+If it's returning the zsh in the yellow path let's restart our computer now and then proceed to configuring our `.zshrc`!
 
 
 

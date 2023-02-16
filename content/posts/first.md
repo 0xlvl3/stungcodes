@@ -16,9 +16,10 @@ Topics covered:
 ### First What is a Dotfile?
 A dotfile is a configuration file that can customize various aspects of programs that we use on Unix-like operating systems. They are given the name dotfiles due to the "." at the start of the filename (e.g. .zshrc, .tmux.conf). To see these files we need to look for hidden files within your terminal run
 
->```
+>```bash
 >ls -la
 >```
+![ls-la](https://imgur.com/SlfwYHm"a title")
 insert img1
 
 <small>Example of list directory contents, with long list and don't ignore hidden files.</small>
@@ -28,7 +29,7 @@ insert img1
 This is the easy part creating the directory, this is where we will maintain all of our dotfiles. Using symlinking we will be able to place the dotfiles into their correct places while also having them within our dotfiles directory. This gives us the ability to create a git repository to store all of our changes, which means you can replicate your configuration at any time all you need is Git. Within your home directory create `.dotfiles`.
 
 
-> ```
+> ```bash
 > mkdir .dotfiles
 > ```
 
@@ -41,7 +42,7 @@ Now we have our .dotfiles directory it's time to get some dotfiles.
 Before we move onto installing `zsh` if you don't have nerd fonts on your operating system I would recommend getting them. They allow you to give your shell a bit more customisation through symbols if you want to learn more check out this small [blog post](https://www.fiqlab.dev/blog/nerdfonts)  before proceeding.
 
 In Ubuntu open up a new `.sh` file in your editor of choice create this script.
->```
+>```bash
 >#!/bin/bash
 >
 >declare -a fonts=(
@@ -97,13 +98,13 @@ We are going to start with a shell, our shell is just a way for us to interact w
 
 I am on Ubuntu, so I will run the following command to install zsh. _For other installations have a look at this link  [other zsh installations](https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e)_
 
-> ```
+> ```bash
 > sudo apt-install zsh
 > ```
 
 Once the install has finished run `zsh` in your terminal
 
- > ```
+ > ```bash
  > zsh
  > ```
 
@@ -116,7 +117,7 @@ insert img4
 <small>Example indicates that we are in zsh.</small>
 
 Now we are in zsh let's make zsh our default shell from bash with the following commands
->```
+>```bash
 ># Check current default shell.
 >echo $SHELL
 >
@@ -141,7 +142,7 @@ Open up your `.zshrc` with `vim .zshrc`
 
 Add these lines to your `.zshrc`.  
 
->```
+>```bash
 ># Keymap for quick source.
 >alias szsh='source .zshrc'
 >
@@ -166,7 +167,7 @@ insert img8
 
 
 Now let's add some other basics, these are some of the defaults that I use. 
->```
+>```bash
 ># Enable colors.
 >autoload -U colors && colors
 >
@@ -182,7 +183,7 @@ Now let's add some other basics, these are some of the defaults that I use.
 
 A small amount of aliases to get you going the ones that stick out here are the `Easier directory navigation` having these is great for traversing.
 
->```
+>```bash
 ># Open editor.
 >alias e='$EDITOR'
 >
@@ -210,7 +211,7 @@ A directory will be created from the variable supplied to `md` with a filename, 
 
 `Turn on vi mode`This isn't for everyone, but I'm a vim user, so I appreciate the utility of it in my terminal. I've left it here for you to decide. I've left the link where I got this from within the code if you'd like to understand it better.
 
->```
+>```bash
 ># Basic auto/tab complete.
 >autoload -U compinit
 >zstyle ':completion:*' menu select
@@ -263,12 +264,12 @@ A directory will be created from the variable supplied to `md` with a filename, 
 
 We are going to install a plugin to our zsh, zsh autosuggestions is a helpful plugin and many use it. Run the command below and it will create a directory for our zsh plugin.
 
->```
+>```bash
 >git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 >```
 
 Once we have ran that we can now source file within in our .zshrc 
->```
+>```bash
 ># Autosuggestion plugin.
 >source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 >```
@@ -279,7 +280,7 @@ Now let's place our dotfiles in our `.dotfiles` directory!
 
 Once you've done that they are now located within your `.dotfiles`directory meaning they are no longer within the home directory. We need them within the home directory as it expects them to be there. We can achieve this easily through symlinking. 
 
->```
+>```bash
 >ln -s ~/.dotfiles/.zshrc ~/.zshrc
 >ln -s ~/.dotfiles/.zsh ~/.zsh
 >```

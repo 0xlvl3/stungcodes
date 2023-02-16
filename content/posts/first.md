@@ -19,7 +19,9 @@ A dotfile is a configuration file that can customize various aspects of programs
 >```bash
 >ls -la
 >```
-![ls-la](https://imgur.com/SlfwYHm"a title")
+
+    ![ls-la](https://imgur.com/SlfwYHm "Test")
+
 insert img1
 
 <small>Example of list directory contents, with long list and don't ignore hidden files.</small>

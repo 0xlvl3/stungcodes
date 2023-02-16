@@ -1,9 +1,9 @@
 ---
-title: "The Dotfile Series Chapter 0"
+title: "Dotfiles Chapter 0 - Welcome"
 date: 2023-02-16T11:12:01+11:00
 draft: false
 ---
-# Dotfiles Series pt. 1
+# Chapter 0 - Welcome
 Within this series I'm going to take you through creating a dotfiles directory and populating it with
 many different dotfiles.
 

@@ -20,7 +20,7 @@ A dotfile is a configuration file that can customize various aspects of programs
 >ls -la
 >```
 
-![img1](/static/dotfiles-0/images/img1.jpg)
+![img1](/static//images/dotfiles-0/img1.jpg)
 
 insert img1
 

@@ -1,6 +1,6 @@
 ---
-title: "The Dotfile Series"
-date: 2023-02-10T11:12:01+11:00
+title: "The Dotfile Series Chapter 0"
+date: 2023-02-16T11:12:01+11:00
 draft: false
 ---
 # Dotfiles Series pt. 1
@@ -14,38 +14,159 @@ Topics covered:
 - [Symlinking and How It Works](#symlinking-and-how-it-works)
 
 ### First What is a Dotfile?
-A dotfile is a configuration file that can customize various aspects of programs that we use on Unix-like operating systems. They are given the name dotfiles due to the "." at the start of the filename (e.g. .zshrc, .tmux.conf). 
+A dotfile is a configuration file that can customize various aspects of programs that we use on Unix-like operating systems. They are given the name dotfiles due to the "." at the start of the filename (e.g. .zshrc, .tmux.conf). To see these files we need to look for hidden files within your terminal run
+
+>```
+>ls -la
+>```
+insert img1
+
+<small>Example of list directory contents, with long list and don't ignore hidden files.</small>
+
 
 ### Creating our Dotfiles Directory
 This is the easy part creating the directory, this is where we will maintain all of our dotfiles. Using symlinking we will be able to place the dotfiles into their correct places while also having them within our dotfiles directory. This gives us the ability to create a git repository to store all of our changes, which means you can replicate your configuration at any time all you need is Git. Within your home directory create `.dotfiles`.
 
-> `mkdir .dotfiles`
+
+> ```
+> mkdir .dotfiles
+> ```
+
+
+insert img2
+<small>Example of creating our .dotfiles and showing it in our home directory</small>
 
 Now we have our .dotfiles directory it's time to get some dotfiles.
 
+Before we move onto installing `zsh` if you don't have nerd fonts on your operating system I would recommend getting them. They allow you to give your shell a bit more customisation through symbols if you want to learn more check out this small [blog post](https://www.fiqlab.dev/blog/nerdfonts)  before proceeding.
+
+In Ubuntu open up a new `.sh` file in your editor of choice create this script.
+>```
+>#!/bin/bash
+>
+>declare -a fonts=(
+>    BitstreamVeraSansMono
+>    CodeNewRoman
+>    DroidSansMono
+>    FiraCode
+>    FiraMono
+>    Go-Mono
+>    Hack
+>    Hermit
+>    JetBrainsMono
+>    Meslo
+>    Noto
+>    Overpass
+>    ProggyClean
+>    RobotoMono
+>    SourceCodePro
+>    SpaceMono
+>    Ubuntu
+>    UbuntuMono
+>)
+>
+>version='2.1.0'
+>fonts_dir="${HOME}/.local/share/fonts"
+>
+>if [[ ! -d "$fonts_dir" ]]; then
+>    mkdir -p "$fonts_dir"
+>fi
+>
+>for font in "${fonts[@]}"; do
+>    zip_file="${font}.zip"
+>    download_url="https://github.com/ryanoasis/nerd->fonts/releases/download/v${version}/${zip_file}"
+>    echo "Downloading $download_url"
+>    wget "$download_url"
+>    unzip "$zip_file" -d "$fonts_dir"
+>    rm "$zip_file"
+>done
+>
+>find "$fonts_dir" -name '*Windows Compatible*' -delete
+>
+>fc-cache -fv
+>
+>```
+<small>Post of the script is linked [here](https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0?permalink_comment_id=4005789#gistcomment-4005789)</small>
+
+Run that script with `bash script_name.sh` to install a bunch of nerd fonts. Once you've run that script and they've installed let's move on.
+
+
 ### Installing Z shell
+
 We are going to start with a shell, our shell is just a way for us to interact with our operating system through the CLI _(Command Line Interface)_. I personally like Z shell or _(zsh)_.
 
 I am on Ubuntu, so I will run the following command to install zsh. _For other installations have a look at this link  [other zsh installations](https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e)_
 
-> `sudo apt-install zsh`
+> ```
+> sudo apt-install zsh
+> ```
 
-Once the install run `zsh` in your terminal
+Once the install has finished run `zsh` in your terminal
 
- >```bash
+ > ```
  > zsh
- >```
+ > ```
 
-You should be greeted with the following screen, select the option below we are going to populate it ourselves. Once
+insert img3
+<small>You should come to this screen hit 0 and create your `.zshrc` we will be populating it.</small>
+
+You'll notice that your prompt has change to your machine name and should look like this `machine_name%` 
+
+insert img4
+<small>Example indicates that we are in zsh.</small>
+
+Now we are in zsh let's make zsh our default shell from bash with the following commands
+>```
+># Check current default shell.
+>echo $SHELL
+>
+># Find location of zsh file
+>which zsh
+> 
+> 
+>chsh -s #location of zsh here e.g. /usr/bin/zsh
+> 
+> # If it returns a path to /zsh you've done it correctly
+> grep <user_name_here> | /etc/passwd 
+>```
+If it's returning the path let's restart our computer now and then proceed to configuring our `.zshrc`!
+
 
 
 ### Configuring our .zshrc
 
-Let's start to configure our first dotfile, our .zshrc.
+Now we have all that let's start to configure our first dotfile, our `.zshrc`!
 
-Open up your .zshrc with `vim .zshrc`
+Open up your `.zshrc` with `vim .zshrc`
 
->```bash
+Add these lines to your `.zshrc`.  
+
+>```
+># Keymap for quick source.
+>alias szsh='source .zshrc'
+>
+># Prompt Settings.
+># http://zsh.sourceforge.net/Doc/Release/Prompt->Expansion.html -- great resource. 
+>PROMPT='%F{yellow}[%F{white}%n%F{yellow}]%F{green}[%~]%f %f'
+>RPROMPT='%F{yellow}%W %* %(?.√.%?)'
+>```
+
+insert img7 
+
+Our first line is an alias; you can think of aliases as a shorter version of lengthy commands. Some individuals source a second file to their shell config because their dotfiles include so many aliases. In another piece, I'll go into greater detail about them. By using `szsh` our `source .zshrc` alias will assist us in reloading our `.zshrc` configuration. We can source our changes more quickly as a result of this.
+
+Your terminal prompt will be affected by the next line in your `Prompt Settings.` This can be customised in a wide variety of ways. I provided a link with the starting point; if you copy it, you'll receive a nice one that I created myself. ' [%~]%f %f ' ' If you installed the nerd fonts, this "?" box is one of them.
+
+Our first line is an alias, aliases can be thought as an abbreviation of a longer command. Some people have so many aliases within their dotfiles they create a separate file and source it to their shell. I will cover them more in another article. Our `source .zshrc` alias will help us reload our `.zshrc` config by calling `szsh`. This makes it quicker for us to source our changes.
+
+The next line for your `Prompt Settings.` will effect your terminal prompt. There are many different customisations you can do to this. I left a link with the resource to get started, copying mine will give you a nice one I designed myself. ' [%~]%f %f' ' The '?' box here is apart of nerd fonts, if you installed your nerd fonts correctly you will see a arrow.
+
+insert img8
+<small>This is what your terminal should now look like.</small>
+
+
+Now let's add some other basics, these are some of the defaults that I use. 
+>```
 ># Enable colors.
 >autoload -U colors && colors
 >
@@ -59,8 +180,37 @@ Open up your .zshrc with `vim .zshrc`
 >export VISUAL=vim
 >```
 
+A small amount of aliases to get you going the ones that stick out here are the `Easier directory navigation` having these is great for traversing.
 
->```bash
+>```
+># Open editor.
+>alias e='$EDITOR'
+>
+># Easier directory navigation.
+>alias -g ...='../..'
+>alias -g ...='../../..'
+>alias -g ....='../../../..'
+>
+># Github shortcuts.
+>alias ga='git add'
+>alias gaa='git add .'
+>alias gcmsg='git commit -m'
+>alias ggpull='git checkout master && git pull && git status'
+>alias ggpush='git push origin'
+>alias gre='git restore --staged'
+>alias gsat='git status'
+>```
+
+
+The following group of code is a little more complicated, but they are still very useful. 
+
+The first is to help with tab completion; as part of this, dotfiles will also be included in the suggested now.
+
+A directory will be created from the variable supplied to `md` with a filename, and it will then immediately change into that directory.
+
+`Turn on vi mode`This isn't for everyone, but I'm a vim user, so I appreciate the utility of it in my terminal. I've left it here for you to decide. I've left the link where I got this from within the code if you'd like to understand it better.
+
+>```
 ># Basic auto/tab complete.
 >autoload -U compinit
 >zstyle ':completion:*' menu select
@@ -112,6 +262,7 @@ Open up your .zshrc with `vim .zshrc`
 >```
 
 We are going to install a plugin to our zsh, zsh autosuggestions is a helpful plugin and many use it. Run the command below and it will create a directory for our zsh plugin.
+
 >```
 >git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 >```
@@ -123,3 +274,14 @@ Once we have ran that we can now source file within in our .zshrc
 >```
 
 ### Symlinking and How It Works
+
+Now let's place our dotfiles in our `.dotfiles` directory!
+
+Once you've done that they are now located within your `.dotfiles`directory meaning they are no longer within the home directory. We need them within the home directory as it expects them to be there. We can achieve this easily through symlinking. 
+
+>```
+>ln -s ~/.dotfiles/.zshrc ~/.zshrc
+>ln -s ~/.dotfiles/.zsh ~/.zsh
+>```
+
+These will create a reference to our files or directories from one location to another without copying our files. A symlink is a pointer to the file or directory declared in the symlink. These symlinks allow us to have our files within multiple locations!

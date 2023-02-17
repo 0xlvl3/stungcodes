@@ -1,6 +1,6 @@
 ---
 title: "Dotfiles Chapter 0 - Welcome"
-date: 16-02-2023
+date: 2023-02-16T18:50:41+11:00
 draft: false
 tags: ['dotfiles', 'vim', 'zsh', 'zshrc', 'nerdfont', 'symlink']
 categories: ['Dotfiles', 'Shell']

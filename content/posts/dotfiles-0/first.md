@@ -1,9 +1,9 @@
 ---
 title: "Dotfiles Chapter 0 - Welcome"
-date: 2023-02-16T11:12:01+11:00
+date: 16-02-2023
 draft: false
 tags: ['dotfiles', 'vim', 'zsh', 'zshrc', 'nerdfont', 'symlink']
-categories: ['dotfiles', 'shell']
+categories: ['Dotfiles', 'Shell']
 ---
 # Chapter 0 - Welcome
 Within this series I'm going to take you through creating a dotfiles directory and populating it with

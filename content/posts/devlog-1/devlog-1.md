@@ -13,7 +13,7 @@ Greetings! This is the first post in my series documenting my journey of learnin
 Topics covered:
 - [First Go Program ](#first-go-program)
 - [Breakdown of the Code](#breakdown-of-the-code)
-- [Difference Between Package and Import](#diference-between-package-and-import)
+- [Difference Between Package and Import](#difference-between-package-and-import)
 
 ### First Go Program
 

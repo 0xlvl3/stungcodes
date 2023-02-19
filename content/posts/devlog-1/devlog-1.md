@@ -10,6 +10,11 @@ categories: ['Devlog', 'Go']
 
 Greetings! This is the first post in my series documenting my journey of learning Go (or Golang) from scratch. I have previous experience in Python and feel confident using it. However, my motivation for learning Go is to enhance my skills in developing web servers, microservices, and APIs.
 
+Topics covered:
+- [First Go Program ](#first-go-program)
+- [Breakdown of the Code](#breakdown-of-the-code)
+- [Difference Between Package and Import](#diference-between-package-and-import)
+
 ### First Go Program
 
 I thought I'd kick it off with a hello-world program.

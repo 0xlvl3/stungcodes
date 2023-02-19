@@ -7,6 +7,7 @@ categories: ['Devlog', 'Go']
 ---
 
 ![img1](/images/devlog-1/img1.png)
+
 Greetings! This is the first post in my series documenting my journey of learning Go (or Golang) from scratch. I have previous experience in Python and feel confident using it. However, my motivation for learning Go is to enhance my skills in developing web servers, microservices, and APIs.
 
 ### First Go Program

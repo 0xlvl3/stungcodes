@@ -2,8 +2,10 @@
 title: "Devlog 2 Fundamentals"
 date: 2023-02-25T12:47:26+11:00
 draft: false
+tags: ['devlog', 'golang', 'go', 'conditions', 'conditionals', 'if', 'loop']
+categories: ['Devlog', 'Go']
 ---
-Welcome to the second installment of my Devlog. Learning the basics of Golang I thought I would run through some of the code that I've just gone through and explain each part. If you haven't read the first some of the code that will be in todays blog was in that you can find it here.
+Welcome to the second installment of my Devlog. Learning the basics of Golang I thought I would run through some of the code that I've just gone through and explain each part. If you haven't read the first some of the code that will be in todays blog was in that you can find it [here](https://stungcodes.com/posts/devlog-1/devlog-1/).
 
 ![img1](/images/devlog-1/img1.png)
 

@@ -1,13 +1,15 @@
 ---
-title: "Devlog 2"
+title: "Devlog 2 Fundamentals"
 date: 2023-02-25T12:47:26+11:00
 draft: false
 ---
 Welcome to the second installment of my Devlog. Learning the basics of Golang I thought I would run through some of the code that I've just gone through and explain each part. If you haven't read the first some of the code that will be in todays blog was in that you can find it here.
 
+![img1](/images/devlog-1/img1.png)
+
 Topics included:
 
-- [User Input, If Else Statements and For Loops](#user-input,-if-else-statements-and-for-loops)
+- [User Input If Else Statements and For Loops](#user-input-if-else-statements-and-for-loops)
 	- [Code Block 1 Breakdown](#code-block-1-breakdown)
 - [Creating and Writing to a Text File](#creating-and-writing-to-a-text-file)
 	- [Code Block 2 Breakdown](#code-block-2-breakdown)
@@ -19,7 +21,7 @@ Topics included:
 
 Repo for this blogs code can be found here: https://github.com/stungnet/devlog-2-code.git
 
-### User Input, If Else Statements and For Loops
+### User Input If Else Statements and For Loops
 
 I put together this example to run through basics that could be used to build fundamentals off. Understanding how to take in user input and use it, navigate if else statements and how for loops work can you essential building blocks to any program. These are at the core of any language that you decide to learn.
 
@@ -28,33 +30,34 @@ _Within this first code block I will go into everything, in the subsequent block
 Before looking over our first code block, I would quickly like to introduce `if statements` and `for loops`. I believe having an understanding of them first before we dive into the breakdown will help.
 
 `if else statements` - An if statement is a conditional structure which allow you to execute specific blocks of code based on a given condition. You can add an additional conditional to an if statement, with `else if` followed by the condition. To finish off most `if` statements you will end it with a `else` clause for if all other conditionals aren't meant this will usually be some sort of default action that will happen. The `else` block is not mandatory to have, you can run `if` statements just by themselves, as you can see in the first code block I've put together.
->```go
->// If statement.
->if condition { 
->// code to be executed if condition is true 
->}
->
->// If else statement.
->if condition { 
->// code to be executed if condition is true 
->} else { 
->// code to be executed if condition is false 
->}
->
->// Else if statement.
->if condition1 { 
->// code to be executed if condition1 is true 
->} else if condition2 { 
->// code to be executed if condition2 is true and condition1 is false 
->} else { 
->// code to be executed if condition1 and condition2 are false 
->}
->
->```
+```go
+// If statement.
+if condition { 
+// code to be executed if condition is true 
+}
+
+// If else statement.
+if condition { 
+// code to be executed if condition is true 
+} else { 
+// code to be executed if condition is false 
+}
+
+// Else if statement.
+if condition1 { 
+// code to be executed if condition1 is true 
+} else if condition2 { 
+// code to be executed if condition2 is true and condition1 is false 
+} else { 
+// code to be executed if condition1 and condition2 are false 
+}
+
+```
 
 `for loops` - For loops are control structures that allow you to execute a block of code repeatedly based on a condition. In the code below we are using an infinite for loop, with a means to `break` out of that loop with conditional statements when given input it's expecting, in this case `a` or `b`. The use of conditional `else if` statements here make it a finite loop. Without a way to `break` or exit the for loop, an infinite loop will loop indefinitely meaning the only way out of this loop is to cancel execution of the program.
 ```go
-// For loop with no initialization, condition or post statements. This loop can only be broken with a break statement or the program is terminated. (what we used above)
+// For loop with no initialization, condition or post statements. 
+// This loop can only be broken with a break statement or the program is terminated. (what we used above)
 for {
 	// code to be executed
 }
@@ -210,11 +213,11 @@ _If you downloaded the repo, you would have noticed already that the executable 
 
 For this program let's compile our code using `go build`. This command is used to compile Go source code files. It will take as many source files as it's passed and then compile them into an executable binary file as output.
 
-gif 1
+![gif1](/images/devlog-2/gif1.gif)
 
 Here you can see me first checking the directory and seeing the contents with `ls`. After seeing what is in our directory, we run the `go build` command on our `main.go` file. This generates a new file called `main` this is our executable binary file. To run this file we use the `./` followed by the filename in this case it would be `./main`.
 
-gif 2
+![gif2](/images/devlog-2/gif2.gif)
 
 This will be common practice for our files so from now on when I am running files within this devlog, I will be building them and then running them.
 

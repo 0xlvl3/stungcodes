@@ -1,5 +1,5 @@
 ---
-title: "Devlog 3 - Go Pointers Basics"
+title: "Devlog 3 Go Pointers Basics"
 date: 2023-03-14T01:49:00Z
 draft: false
 tags: ['devlog', 'golang', 'go', 'pointers']

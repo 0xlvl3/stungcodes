@@ -9,23 +9,27 @@ categories: ['Devlog', 'Go']
 ![img1](/images/devlog-1/img1.png)
 
 Today I am going to run over pointers and how we use them within functions in Go. 
-If read the post last week I had some questions at the bottom for you to answer.
+If you read the post last week I had some questions at the bottom for you to answer.
 Here they are:
 
 1. What is an if statement, and how does it work?
-	An 'if' statement uses boolean expressions to conditionally execute blocks of
-	code based on if the expressions is true or false.
+
+- An 'if' statement uses boolean expressions to conditionally execute blocks of code based on if the expressions is true or false.
+
 2. What is a for loop, and how does it work?
-	A for loop will execute a specific block of code repeatedly until
-	a certain conidition is met.
+		
+- A for loop will execute a specific block of code repeatedly until a certain conidition is met.
+
 3. What does the import fmt do?
-	Apart of the Go standard library 'fmt' provides functions for formatting and 
-	printing text.
+
+- Apart of the Go standard library 'fmt' provides functions for formatting and printing text.
 4. os Stands for?
-	'os' stands for 'Operating System'. This is also another package within the 
-	standard library.
-5. Where can you find a list of the standard libraries for Go?
-	https://golang.org/pkg/
+
+- 'os' stands for 'Operating System'. This is also another package within the standard library.
+
+5. Where can you find a list of the standard libraries for Go?	
+
+- https://golang.org/pkg/
 
 Topics included:
 
@@ -92,14 +96,9 @@ func main()  {
 	fmt.Println(*pointer) // bread
 }
 ```
+### Passing by Reference in Go Functions
 
-### Passing by Reference in Go Functions 
-So as I stated above when we just pass a variable through a function in Go 
-we're not manipulating the actual variables data. We're 'passing by value' meaning Go will
-create a copy of that variable and then manipulate the copy. Sometimes we want that but other
-times we want to manipulate the value associated with that variable so we create a function
-that we can pass a refrence to. In the example below I've demostrated how 'Passing by Value'
-and 'Passing by Reference' work in relation to functions.
+As I mentioned earlier, when we pass a variable through a function in Go, we are not manipulating the actual variable's data. We are "passing by value," which means Go creates a copy of that variable and manipulates the copy. Sometimes, however, we want to manipulate the value associated with that variable, so we create a function to which we can pass a reference. In the example below, I have demonstrated how "passing by value" and "passing by reference" work in relation to functions.
 
 ```go 
 package main

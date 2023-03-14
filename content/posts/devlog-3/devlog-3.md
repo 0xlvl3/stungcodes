@@ -1,10 +1,12 @@
 ---
-title: "Devlog 3"
+title: "Devlog 3 - Go Pointers Basics"
 date: 2023-03-14T01:49:00Z
 draft: false
+tags: ['devlog', 'golang', 'go', 'pointers']
+categories: ['Devlog', 'Go']
 ---
 
-# Devlog 3 - Go Pointer Basics
+![img1](/images/devlog-1/img1.png)
 
 Today I am going to run over pointers and how we use them within functions in Go. 
 If read the post last week I had some questions at the bottom for you to answer.

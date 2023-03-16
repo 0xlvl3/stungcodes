@@ -1,5 +1,5 @@
 ---
-title: "Devlog 4"
+title: "Devlog 4 Structs Part 1"
 date: 2023-03-15T09:26:04Z
 draft: false
 tags: ['devlog', 'golang', 'go', 'structs', 'types']

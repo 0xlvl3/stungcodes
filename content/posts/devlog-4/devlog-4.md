@@ -5,6 +5,8 @@ draft: false
 tags: ['devlog', 'golang', 'go', 'structs', 'types']
 categories: ['Devlog', 'Go']
 ---
+![img1](/images/devlog-1/img1.png)
+
 
 Welcome back to the next installment of my devlog. 
 	
@@ -12,10 +14,53 @@ Welcome back to the next installment of my devlog.
 ### Last devlog questions: 
 
 	1. What is meant by 'Pass by Value'?
+		- Pass by Value is when we pass a value to a function and this value is copied into another 
+		location of your memory. This copy is modified within the fucntion, the original value is never 
+		modified.
+
 	2. What is meant by 'Pass by Reference'?
+		- Pass by Reference is when we pass a reference to the data into a function 
+		which will manipulate the original data associated with that reference. This is
+		done with the use of pointers.
+
 	3. How do you declare a pointer type?
+		- `*` followed by the variable it points to
+
 	4. How do you create a function that takes a reference?
+		- 
+		```go
+		// Function takes a pointer to an int as an argument.
+		func increment(x *int)  {
+			*x = *x + 1 // Value pointed by x increment by 1.
+			
+		}
+
+		```
 	5. Take the last code block and modify it to use methods.
+
+		-
+		```go
+		package main
+
+		import "fmt"
+
+		type Value struct {
+			x int
+			y int
+		}
+
+		func (v *Value) double() {
+			v.x *= 2
+			v.y *= 2
+		}
+
+		func main() {
+			v := &Value{x: 5, y: 100}
+			fmt.Printf("Before doubling: x=%d, y=%d\n", v.x, v.y)
+			v.double()
+			fmt.Printf("After doubling: x=%d, y=%d\n", v.x, v.y)
+		}
+		```
 
 ### Topics included:
 - [What Are Structs](#what-are-structs)
